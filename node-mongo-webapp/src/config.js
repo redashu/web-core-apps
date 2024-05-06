@@ -1,6 +1,6 @@
 const { name } = require('ejs');
 const mongoose = require('mongoose');
-const connect = mongoose.connect("mongodb://localhost:27017/logindb");
+const connect = mongoose.connect("mongodb://ashudb-mongo:27017/logindb");
 
 // checking connection 
 connect.then(() => {

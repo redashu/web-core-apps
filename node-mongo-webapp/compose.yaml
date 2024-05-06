@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  ashudb-mongo:
+    image: mongo
+    container_name: ashudbc1 
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: mongoadmin
+    #   MONGO_INITDB_ROOT_PASSWORD: secret 
+    ports:
+      - 27017:27017
+  ashu-node-app:
+    image: ashunodeapp:20.12.v1 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ashunodec1 
+    depends_on:
+      - ashudb-mongo
+    ports:
+      - 1234:5000 
